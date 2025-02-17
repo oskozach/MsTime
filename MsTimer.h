@@ -1,6 +1,6 @@
 #ifndef __MS_TIMER_H__
 #define __MS_TIMER_H__
-#include <stdint.h>
+#include <Arduino.h>
 
 class MsTimer {
     private:

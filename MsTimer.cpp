@@ -1,5 +1,4 @@
-#include <MsTimer.h>
-#include <Arduino.h>
+#include "MsTimer.h"
 
 MsTimer::MsTimer() : _timeout(0), _msLastReset(0) {}
 MsTimer::MsTimer(uint32_t timeout) : _timeout(timeout), _msLastReset(0) {}
