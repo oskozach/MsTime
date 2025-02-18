@@ -1,4 +1,4 @@
-#include "src/MsTimer/ScheduledEvent.h"
+#include "src/MsTime/ScheduledEvent.h"
 
 #define N 3
 

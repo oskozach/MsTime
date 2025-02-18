@@ -1,4 +1,4 @@
-#include "src/MsTimer/Timer.h"
+#include "src/MsTime/Timer.h"
 
 Timer timer(1000);
 
