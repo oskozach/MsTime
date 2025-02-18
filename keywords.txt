@@ -1,0 +1,14 @@
+ScheduledEvent  KEYWORD1
+Timer	KEYWORD1
+StopWatch	KEYWORD1
+attach	KEYWORD2
+detach	KEYWORD2
+detachAll	KEYWORD2
+init	KEYWORD2
+shutDown	KEYWORD2
+start	KEYWORD2
+stop	KEYWORD2
+tick	KEYWORD2
+lap	KEYWORD2
+setTimeout	KEYWORD2
+setNumRepeats	KEYWORD2
