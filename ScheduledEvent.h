@@ -14,10 +14,12 @@ class ScheduledEvent : public Timer {
                         void (*onStop)() = nullptr,
                         uint32_t numRepeats = 0);
         ~ScheduledEvent();
+        void attach(const char *title, void (*cb)());
+        void attach(void (*exec)(), void (*onInit)() = nullptr, void (*onStop)() = nullptr);
+        void detach(const char *title);
+        void detachAll();
         void init();
         void shutDown();
-        void attach(const char *title, void (*cb)());
-        void detach(const char *title);
         void start() override;
         void stop() override;
         bool tick() override;

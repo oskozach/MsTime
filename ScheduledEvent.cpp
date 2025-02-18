@@ -11,16 +11,23 @@ ScheduledEvent::~ScheduledEvent() {
 }
 
 void ScheduledEvent::attach(const char *title, void (*cb)()) {
-    if(strcmp(title, "exec") == 0) {
-        _exec = *cb;
-        return;
-    } 
     if(strcmp(title, "init") == 0) {
         _onInit = *cb;
         return;
     } 
-    if(strcmp(title, "stop") == 0)
+    if(strcmp(title, "stop") == 0) {
         _onStop = *cb;
+    }
+    if(strcmp(title, "exec") == 0) {
+        _exec = *cb;
+        return;
+    } 
+}
+
+void ScheduledEvent::attach(void (*exec)(), void (*onInit)() = nullptr, void (*onStop)() = nullptr) {
+    _exec = *exec;
+    _onInit = *onInit;
+    _onStop = *onStop;
 }
 
 void ScheduledEvent::detach(const char *title) {
@@ -36,14 +43,11 @@ void ScheduledEvent::detach(const char *title) {
         _onStop = nullptr;
 }
 
-// void ScheduledEvent::attach(uint32_t timeout, void (*exec)(), void (*onInit)(), 
-//                             void (*onStop)(), uint32_t numRepeats) {
-//     Timer::setTimeout(timeout);
-//     Timer::setNumRepeats(numRepeats);
-//     _exec = *exec;
-//     _onInit = *onInit;
-//     _onStop = *onStop;
-// }
+void ScheduledEvent::detachAll() {
+    _exec = nullptr;
+    _onInit = nullptr;
+    _onStop = nullptr;
+}
 
 void ScheduledEvent::init() {
     if(_onInit)
@@ -54,9 +58,7 @@ void ScheduledEvent::shutDown() {
     stop();
     Timer::setTimeout(0);
     Timer::setNumRepeats(0);
-    _onStop = nullptr;
-    _exec = nullptr;
-    _onInit = nullptr;
+    detachAll();
 }
 
 void ScheduledEvent::start() {
