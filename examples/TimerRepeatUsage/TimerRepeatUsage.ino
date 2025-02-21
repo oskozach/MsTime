@@ -1,12 +1,10 @@
 #include "src/MsTime/Timer.h"
 
-Timer timer(1000);
+Timer timer(1000, 5);
 
 void setup() {
   Serial.begin(9600);
   delay(500);
-
-  timer.setNumRepeats(5);
   timer.start();
 }
 
