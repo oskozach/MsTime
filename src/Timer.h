@@ -10,15 +10,14 @@ class Timer {
         uint32_t _cnt;
     protected:
         bool state;
-        void begin();
-        void reset();
     public:
         Timer();
         Timer(uint32_t timeout, uint32_t numRepeats = 0);
         virtual ~Timer();
+        virtual void reset();
         virtual void start();
-        virtual void stop();
         virtual bool tick();
+        bool getState();
         void setTimeout(uint32_t timeout);
         void setNumRepeats(uint32_t num);
 };

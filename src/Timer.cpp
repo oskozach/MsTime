@@ -1,38 +1,24 @@
 #include "Timer.h"
 
-Timer::Timer() : _timeout(5), _numRepeats(0), 
-                        _ms(0), _cnt(0), state(false) {}
+Timer::Timer() : _timeout(5), _numRepeats(0), _ms(0), _cnt(0), state(false) {}
 
 Timer::Timer(uint32_t timeout, uint32_t numRepeats)
-                    : _numRepeats(numRepeats), _ms(0), 
-                        _cnt(0), state(false) { 
+                : _numRepeats(numRepeats), _ms(0), _cnt(0), state(false) { 
     setTimeout(timeout); 
 }
 
 Timer::~Timer() {}
 
-void Timer::begin() {
-    _ms = millis();
-    _cnt = 0;
-    state = true;
-}
-
 void Timer::reset() {
+    state = false;
     _ms = 0;
     _cnt = 0;
-    state = false;
 }
 
 void Timer::start() {
-    if(state)
-        return;
-    begin();
-}
-
-void Timer::stop() {
-    if(!state)
-        return;
-    reset();
+    state = true;
+    _ms = millis();
+    _cnt = 0;
 }
 
 bool Timer::tick() {
@@ -43,17 +29,17 @@ bool Timer::tick() {
         return false;
     if(_numRepeats > 0
             && ++_cnt >= _numRepeats) {
-        reset();
+        Timer::reset();
         return true;
     }
     _ms = tm;
     return true;
 }
 
+bool Timer::getState() { return state; }
+
 void Timer::setTimeout(uint32_t timeout) {
     _timeout = (timeout == 0) ? 5 : timeout;
 }
 
-void Timer::setNumRepeats(uint32_t num) {
-    _numRepeats = num;
-}
+void Timer::setNumRepeats(uint32_t num) { _numRepeats = num; }
