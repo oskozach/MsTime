@@ -9,6 +9,8 @@ Timer::Timer(uint32_t timeout, uint32_t numRepeats)
 
 Timer::~Timer() {}
 
+void Timer::refresh() { if(state) _ms = millis(); }
+
 void Timer::reset() {
     state = false;
     _ms = 0;

@@ -14,6 +14,7 @@ class Timer {
         Timer();
         Timer(uint32_t timeout, uint32_t numRepeats = 0);
         virtual ~Timer();
+		void refresh();
         virtual void reset();
         virtual void start();
         virtual bool tick();
