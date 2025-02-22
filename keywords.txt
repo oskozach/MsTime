@@ -1,14 +1,23 @@
-ScheduledEvent  KEYWORD1
+# Class name
 Timer	KEYWORD1
+TaskTimer  KEYWORD1
 StopWatch	KEYWORD1
-attach	KEYWORD2
-detach	KEYWORD2
-detachAll	KEYWORD2
-init	KEYWORD2
-shutDown	KEYWORD2
-start	KEYWORD2
-stop	KEYWORD2
-tick	KEYWORD2
-lap	KEYWORD2
-setTimeout	KEYWORD2
-setNumRepeats	KEYWORD2
+
+# Methods
+refresh KEYWORD2
+reset   KEYWORD2
+start   KEYWORD2
+tick    KEYWORD2
+getState    KEYWORD2
+setTimeout  KEYWORD2
+setNumRepeats   KEYWORD2
+attachExec  KEYWORD2
+attachOnStart   KEYWORD2
+attachOnReset   KEYWORD2
+detachExec  KEYWORD2
+detachOnStart   KEYWORD2
+detachOnReset   KEYWORD2
+detachAll   KEYWORD2
+shutDown    KEYWORD2
+stop    KEYWORD2
+lap KEYWORD2
