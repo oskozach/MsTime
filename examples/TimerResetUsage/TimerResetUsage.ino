@@ -1,4 +1,4 @@
-#include "src/MsTime/Timer.h"
+#include <Timer.h>
 
 Timer timer;
 

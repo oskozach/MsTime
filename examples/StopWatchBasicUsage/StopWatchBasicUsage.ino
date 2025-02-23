@@ -1,4 +1,4 @@
-#include "src/MsTime/StopWatch.h"
+#include <StopWatch.h>
 
 StopWatch stopwatch;
 
